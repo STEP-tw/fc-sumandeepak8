@@ -1,29 +1,27 @@
 const fs = require('fs');
 
-
-const app = (req, res) => {
-  let content = '';
-  console.log(req.url)
-
+const getContent = function (req, res, content) {
   let filesPaths = {
     '/': './src/flowerCatalog.html',
     '/main.css': './src/main.css',
   };
-
   let imagesPaths = {
     '/freshorigins.jpg': './images/freshorigins.jpg',
     '/animated-flower-image-0021.gif': './images/animated-flower-image-0021.gif',
   }
-
   if (filesPaths[req.url]) {
-    content = fs.readFileSync(filesPaths[req.url], 'utf-8');
-    res.write(content);
-    res.statusCode = 200;
-    res.end();
-    return;
+    return fs.readFileSync(filesPaths[req.url], 'utf-8');
   }
   if (imagesPaths[req.url]) {
-    content = fs.readFileSync(imagesPaths[req.url]);
+    return fs.readFileSync(imagesPaths[req.url]);
+  }
+};
+
+
+const app = (req, res) => {
+  let content = '';
+  content = getContent(req, res, content);
+  if (content) {
     res.write(content);
     res.statusCode = 200;
     res.end();
