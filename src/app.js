@@ -1,6 +1,13 @@
 const fs = require('fs');
 
-const getContent = function (req, res, content) {
+const send = function (res, statusCode, content) {
+  res.statusCode = statusCode;
+  res.write(content);
+  res.end();
+};
+
+
+const getContent = function (req, res) {
   let filesPaths = {
     '/': './src/flowerCatalog.html',
     '/main.css': './src/main.css',
@@ -9,28 +16,21 @@ const getContent = function (req, res, content) {
     '/freshorigins.jpg': './images/freshorigins.jpg',
     '/animated-flower-image-0021.gif': './images/animated-flower-image-0021.gif',
   }
-  if (filesPaths[req.url]) {
-    return fs.readFileSync(filesPaths[req.url], 'utf-8');
+  let path = filesPaths[req.url] || imagesPaths[req.url];
+
+  if (path) {
+    fs.readFile(path, (err, content) => {
+      send(res, 200, content);
+    });
+    return;
   }
-  if (imagesPaths[req.url]) {
-    return fs.readFileSync(imagesPaths[req.url]);
-  }
+  send(res, 404, 'wrong request');
 };
 
 
 const app = (req, res) => {
-  let content = '';
-  content = getContent(req, res, content);
-  if (content) {
-    res.write(content);
-    res.statusCode = 200;
-    res.end();
-    return;
-  }
-  res.write('wrong request');
-  res.statusCode = 404;
-  res.end();
-};
+  getContent(req, res);
+}
 
 // Export a function that can act as a handler
 
