@@ -4,6 +4,7 @@
 <head>
   <title>Flower catalog page</title>
   <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <script src="controller.js"></script>
 </head>
 
 <body>
@@ -11,12 +12,17 @@
   <div style="float: left">
     <img src="../freshorigins.jpg">
   </div>
-  <div>
-    <img id="gif" src="../animated-flower-image-0021.gif">
+  <div id="listLinks">
     <ul>
       <li><a href="">Abeliophyllum</a></li>
       <li><a href="">Ageratum</a></li>
     </ul>
+  </div>
+  <div id="gif_div">
+    <img id="gif" src="../animated-flower-image-0021.gif" onclick="invisible()">
+  </div>
+  <div id="guest_div">
+    <a href="">Guest Book</a>
   </div>
 </body>
 

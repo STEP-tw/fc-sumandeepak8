@@ -14,8 +14,31 @@ img {
   padding: 20px;
 }
 
-#gif {
-  float: right;
+#gif_div {
+  float: left;
   margin-top: 300px;
   margin-right: 100px;
+  text-align: left;
+  visibility: visible;
+}
+
+a{
+  color: blue;
+  text-decoration: none;
+}
+
+#listLinks{
+  float: right;
+  text-align: left;
+  position: relative;
+  top: 300px;
+  right: 150px;
+  font-size: 25px;
+}
+
+#guest_div{
+  position: relative; 
+  top: 550px;
+  right: 10px;
+  text-decoration-line: underline;
 }
