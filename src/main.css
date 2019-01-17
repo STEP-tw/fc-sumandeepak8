@@ -1,25 +1,25 @@
+body{
+  padding: 20px;
+}
+
 .header {
   text-align: right;
   font-size: 40px;
   color: orange;
-  margin: 10px;
-  padding: 30px auto;
-  padding-top: 20px;
-  padding-right: 80px;
-  height: 90px;
-  border-bottom: 2px solid black;
-}
-
-img {
-  padding: 20px;
+  padding: 30px 100px;
+  border-bottom : 2px solid black ;
+  border-top : 2px solid black ;
 }
 
 #gif_div {
-  float: left;
+  float: right;
   margin-top: 300px;
   margin-right: 100px;
-  text-align: left;
-  visibility: visible;
+  padding: 20px;
+}
+
+img{
+  padding: 20px;
 }
 
 a{
@@ -39,6 +39,6 @@ a{
 #guest_div{
   position: relative; 
   top: 550px;
-  right: 10px;
+  left: 5px;
   text-decoration-line: underline;
 }
