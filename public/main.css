@@ -1,7 +1,3 @@
-body{
-  padding: 20px;
-}
-
 .header {
   text-align: right;
   font-size: 40px;
@@ -11,7 +7,7 @@ body{
   border-top : 2px solid black ;
 }
 
-#gif_div {
+.gif_div {
   float: right;
   margin-top: 300px;
   margin-right: 100px;
@@ -22,12 +18,7 @@ img{
   padding: 20px;
 }
 
-a{
-  color: blue;
-  text-decoration: none;
-}
-
-#listLinks{
+.listLinks{
   float: right;
   text-align: left;
   position: relative;
@@ -36,9 +27,45 @@ a{
   font-size: 25px;
 }
 
-#guest_div{
+ .listLinks a{
+  text-decoration: none;
+}
+
+.guest_div{
   position: relative; 
   top: 550px;
   left: 5px;
   text-decoration-line: underline;
+}
+
+.guest_heading{
+  text-align: center;
+  font-size: 50px;
+  color: orange;
+}
+
+.guest_heading a{
+  color: darkblue;
+  text-decoration: underline;
+}
+
+#name{
+  width: 220px;
+  height: 40px;
+}
+
+#comment{
+  width: 300px;
+  height: 100px;
+  margin: 10px;
+}
+
+.guest_header_div{
+  font-size: 25px;
+  border-bottom: 2px solid black;
+  padding: 10px;
+}
+
+.footer_Line{
+  font-size: 30px;
 }
