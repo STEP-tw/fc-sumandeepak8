@@ -6,16 +6,13 @@ const send = function (res, statusCode, content) {
   res.end();
 };
 
-const getContent = function (req, res) {
-  let paths = {
-    '/': './src/flowerCatalog.html',
-    '/main.css': './src/main.css',
-    '/controller.js': './src/controller.js',
-    '/freshorigins.jpg': './images/freshorigins.jpg',
-    '/animated-flower-image-0021.gif': './images/animated-flower-image-0021.gif',
-  }
-  let path = paths[req.url];
+const getPath = function (path) {
+  if (path == '/') return './public/flowerCatalog.html';
+  return './public' + path;
+};
 
+const getContent = function (req, res) {
+  let path = getPath(req.url);
   if (path) {
     fs.readFile(path, (err, content) => {
       send(res, 200, content);
@@ -25,7 +22,12 @@ const getContent = function (req, res) {
   send(res, 404, 'wrong request');
 };
 
+const logRequest = function (req) {
+  console.log(req.method, req.url);
+};
+
 const app = (req, res) => {
+  logRequest(req);
   getContent(req, res);
 }
 
