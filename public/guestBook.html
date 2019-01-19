@@ -1,26 +1,31 @@
-<!DOCTYPE html>
 <html>
 
 <head>
   <title>Form page</title>
-  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/main.css" />
   <script src="controller.js"></script>
 </head>
 
 <body>
-  <div class="guest_header_div">
-    <h1 class="guest_heading"><a>
+  <div>
+    <h1 class="top_heading"><a href="/">
         <<</a>Guest Book</h1> <br>
           <h1>Leave a comment</h1>
-          Name: <input id="name"><br>
-          comment: <input id="comment"><br>
-          <input type="submit" value="Submit" onclick="submit()">
+          <form action="/guestBook.html" method="post">
+            Name: <input name="name"><br>
+            Commnets:<textarea name="comment"></textarea><br>
+            <input type="submit" value="Submit">
+          </form>
   </div>
-  <div>
-    <p class="footer_Line">DATE NAME COMMENT</p>
-    <p id="input">
-    </p>
-  </div>
+  <hr>
+
+  <table style="border: 2px solid black; width: 100%; text-align: center">
+    <tr>
+      <th>NAME</th>
+      <th>COMMENTS</th>
+      <th>DATE</th>
+    </tr>
+  </table>
 </body>
 
 </html>

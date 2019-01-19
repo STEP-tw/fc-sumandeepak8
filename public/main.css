@@ -1,3 +1,7 @@
+body{
+  font-size: 18px;
+}
+
 .header {
   text-align: right;
   font-size: 40px;
@@ -38,13 +42,13 @@ img{
   text-decoration-line: underline;
 }
 
-.guest_heading{
+.top_heading{
   text-align: center;
   font-size: 50px;
   color: orange;
 }
 
-.guest_heading a{
+.top_heading a{
   color: darkblue;
   text-decoration: underline;
 }
@@ -60,12 +64,18 @@ img{
   margin: 10px;
 }
 
-.guest_header_div{
-  font-size: 25px;
-  border-bottom: 2px solid black;
-  padding: 10px;
+.para1 {
+  width: 550px;
+  position: relative;
+  top: 250px;
+  right: 40px;
+  float: right;
 }
 
-.footer_Line{
-  font-size: 30px;
+.para {
+  width: 750px;
+  position: relative;
+  top: 300px;
+  right: 40px;
+  float: right;
 }
