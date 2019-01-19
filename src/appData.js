@@ -27,8 +27,10 @@ class AppData {
     let remaining = [...matchingRoutes];
     let next = () => {
       let current = remaining[0];
+      console.log('current', current);
       if (!current) return;
       remaining = remaining.slice(1);
+      console.log('remain', remaining);
       current.handler(req, res, next);
     }
     next();
