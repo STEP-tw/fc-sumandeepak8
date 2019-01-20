@@ -26,11 +26,10 @@ class AppData {
     let matchingRoutes = this.routes.filter(r => isMatching(req, r));
     let remaining = [...matchingRoutes];
     let next = () => {
+      console.log('total', remaining);
       let current = remaining[0];
-      console.log('current', current);
       if (!current) return;
       remaining = remaining.slice(1);
-      console.log('remain', remaining);
       current.handler(req, res, next);
     }
     next();

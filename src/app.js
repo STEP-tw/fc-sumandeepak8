@@ -17,6 +17,7 @@ const getContent = function (req, res) {
 };
 
 const renderGuestBook = function (req, res) {
+
   let comments = getTotalComments(req, fs);
   let table = createTableRows(comments);
   comments = JSON.stringify(comments);
@@ -24,11 +25,9 @@ const renderGuestBook = function (req, res) {
 };
 
 const logRequest = function (req, res, next) {
-  console.log('request headers', req.headers);
-  console.log('request method', req.method);
+  // console.log('request headers', req.headers);
+  // console.log('request method', req.method);
   console.log('request url', req.url);
-  console.log('readBody', readBody);
-
   next();
 };
 

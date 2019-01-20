@@ -1,4 +1,4 @@
-const readArgs = require('./util');
+const { readArgs, send } = require('./util');
 
 const createTableRows = function (comments) {
   return comments.map((x) => {
