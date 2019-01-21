@@ -1,5 +1,13 @@
 const prefixPublic = (url) => './public' + url;
 
+const parser = function (data) {
+  return JSON.parse(data);
+};
+
+const toString = function (object) {
+  return JSON.stringify(object);
+};
+
 const getDate = function () {
   return new Date().toLocaleString();
 };
@@ -49,4 +57,6 @@ module.exports = {
   sendNotFound,
   readBody,
   readArgs,
+  parser,
+  toString,
 }

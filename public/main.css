@@ -79,3 +79,8 @@ img{
   right: 40px;
   float: right;
 }
+
+table td{
+  text-align: center;
+  border: 1px solid black;
+}
