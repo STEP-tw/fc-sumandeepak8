@@ -1,38 +1,24 @@
-const { readArgs, send } = require('./util');
+const { send } = require('./util');
 
-const createTableRows = function (comments) {
-  return comments.map((x) => {
+const createTable = function (comments) {
+  let rows = comments.map((x) => {
     return `<tr>
     <td>${x['name']}</td>
     <td>${x['comment']}</td>
     <td>${x['date']}</td>
     </tr>`;
   }).join('');
+  return `<table>${rows}</table>`;
 };
 
-const getTotalComments = function (req, fs) {
-  let comments = fs.readFileSync('./nameComments.json');
-  comments = JSON.parse(comments);
-  comments.unshift(readArgs(req.body));
-  return comments;
-};
-
-const renderGuestData = function (res, comments, table, fs) {
-  fs.writeFile('./nameComments.json', comments, err => {
-    if (err) {
-      sendNotFound(res);
-      return;
-    };
-    fs.readFile('./public/guestBook.html', 'utf-8', (err, data) => {
-      data = data.split(`</table>`);
-      let book = `${data[0]} ${table} </table> ${data[1]}`;
-      send(res, 200, book);
-    });
+const renderGuestData = function (res, table, fs) {
+  fs.readFile('./public/guestBook.html', (err, data) => {
+    data += table;
+    send(res, 200, data);
   });
 };
 
 module.exports = {
-  createTableRows,
-  getTotalComments,
+  createTable,
   renderGuestData,
-}
+};
