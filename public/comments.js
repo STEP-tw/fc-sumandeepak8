@@ -1,14 +1,22 @@
 const { send } = require('./util');
 
+const withTag = function (content, tag) {
+  return `<${tag}>${content}<${tag}/>`;
+};
+
+const createRowElement = function (element) {
+  return withTag(element, 'td');
+};
+
 const createTable = function (comments) {
   let rows = comments.map((x) => {
-    return `<tr>
-    <td>${x['name']}</td>
-    <td>${x['comment']}</td>
-    <td>${x['date']}</td>
-    </tr>`;
+    let rowData =
+      `${createRowElement(x.name)}
+       ${createRowElement(x.comment)}
+       ${createRowElement(x.date)}`;
+    return withTag(rowData, 'tr');
   }).join('');
-  return `<table>${rows}</table>`;
+  return withTag(rows, 'table');
 };
 
 const renderGuestData = function (res, table, fs) {
