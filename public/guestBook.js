@@ -1,37 +1,48 @@
 const { send } = require('./util');
 
-
 const guestBookTemplate = function (comments = '') {
   const html = `
+
 <html>
+
 <head>
-<title>Form page</title>
-<link rel="stylesheet" type="text/css" media="screen" href="/main.css" />
+  <title>Form page</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="/main.css" />
+  <style>
+    #refresh{
+      width: 80px;
+      background-color:skyblue; 
+      height: 30px;
+    }
+
+    table th{
+     width: 89px;
+    }
+  </style>
 </head>
 
 <body>
-<div>
-  <h1 class="top_heading">
-    <a href="/"> &lt;&lt;</a>Guest Book
-  </h1>
+  <div>
+    <h1 class="top_heading">
+      <a href="/"> &lt;&lt;</a>Guest Book
+    </h1>
   </div>
-  <h1>Leave a comment</h1>
-  <form action="/guestBook.js" method="post">
-    Name: <input name="name">
-    <div>
-    Comments:<textarea name="comment"></textarea>
-    </div>
-    <div>
-    <input type="submit" value="Submit">
-    </div>
-  </form>
-</div>
-<hr>
-<div>
-${comments}
-</div>
+  <div>
+    <h1>Leave a comment</h1>
+    <form action="/guestBook.js" method="post">
+      Name: <input name="name"><br>
+      Comments:<textarea name="comment"></textarea><br>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+  <hr>
+  <div>
+    <input id="refresh" type="submit" value="Refresh&#x21bb;">
+    ${comments}
+  </div>
 </body>
-</html>  
+
+</html>
 `
   return html;
 };
