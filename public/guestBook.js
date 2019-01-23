@@ -8,6 +8,7 @@ const guestBookTemplate = function (comments = '') {
 <head>
   <title>Form page</title>
   <link rel="stylesheet" type="text/css" media="screen" href="/main.css" />
+  <script src="/controller.js"></script>
   <style>
     #refresh{
       width: 80px;
@@ -37,7 +38,7 @@ const guestBookTemplate = function (comments = '') {
   </div>
   <hr>
   <div>
-    <input id="refresh" type="submit" value="Refresh&#x21bb;">
+    <button onclick="updateOnlyTable()">Refresh&#x21bb;</button>
     ${comments}
   </div>
 </body>
@@ -99,5 +100,4 @@ class GuestBook {
   };
 
 }
-
 module.exports = GuestBook;

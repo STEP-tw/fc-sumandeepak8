@@ -24,11 +24,8 @@ const send = function (res, statusCode, content) {
 };
 
 const sendNotFound = function (res) {
-  res.statusCode = 404;
-  res.write('File not found, Error 404');
-  res.end();
+  send(res, 404, 'File not found, Error 404');
 };
-
 
 const readArgs = text => {
   let args = {};

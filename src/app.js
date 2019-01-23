@@ -45,9 +45,18 @@ const logRequest = function (req, res, next) {
   next();
 };
 
+const updateCommentsOnly = function (req, res) {
+  fs.readFile('./comments.json', 'utf-8', (err, comments) => {
+    comments = parser(comments);
+    let table = book.getTable(comments);
+    send(res, 200, table);
+  });
+};
+
 app.use(logRequest);
 app.use(readBody);
 app.post('/guestBook.js', renderGuestPage);
 app.get('/guestBook.js', renderGuestPage);
+app.get('/updateComments', updateCommentsOnly);
 app.use(getContent);
 module.exports = app.handleRequest.bind(app);
